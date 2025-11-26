@@ -1,36 +1,39 @@
-/* this is updated */
 :root {
-  /* Text styles */
-  --header-font-family: "poppins";
-  --paragraph-font-family: "montserrat";
-  --tag-font-family: "roboto mono";
-  --card-fontsize-header-1: 14px;
-  --description-fontsize-header-1: 32px;
-  --description-fontsize-header-2: 16px;
-  --description-fontsize-header-3: 12px;
-  --description-fontsize-paragraph: 16px;
-  --tag-fontsize: 10px;
-  --rating-desciption-fontsize: 6px;
-  --rating-card-fontsize: 12px;
-  --spilgalleri-titel-fontsize: 20px;
-  --spilgalleri-header-2-fontsize: 17px;
+  /* typography */
+  --header-font: "poppins";
+  --others-font: "inter";
+
+  --tag-size: 16px;
+  --card-size: 16px;
+  --infosite-title-size: 32px;
+
+  --tag-font-weight: 500;
+  --card-font-weight: 800;
+  --infosite-title-font-weight: 900;
+
+  --tag-letter-spacing: 0.96px;
+  --card-letter-spacing: -0.176px;
+  --infosite-title-letter-spacing: -0.352px;
+
+  --poppins-line-height: 115%;
 
   /* Color styles */
-  --card-background-color: #fafafa;
-  --tag-background-color: #f8f8f8;
-  --tag-border-color: #e0e0e0;
-  --rating-yellow-gradient: linear-gradient(
-    to bottom,
-    #e6cd53 16%,
-    #ffe35a 51%,
-    #e6cd53 88%
-  );
+  --tag-border: #bf181d;
+  --logo-red: #bf181d;
+  --info-grey: #f1f1f1;
+  --tag-fill: #ffffff;
+  --card-fill: #fafafa;
+  --rating-yellow-gradient: #f7dc58;
 
-  /* effect styles */
-  --shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
-  --transition: 250ms ease;
+  /* Effect styles */
+  --shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 .spilgalleri-titel {
   font-family: var(--header-font-family);
@@ -40,7 +43,7 @@
 /* Card in general */
 /* Card */
 .game-card {
-  width: 100%; 
+  width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -179,8 +182,6 @@
   text-transform: capitalize;
 }
 
-
-
 .card-titel {
   display: flex;
   flex-direction: column;
@@ -226,7 +227,7 @@ body::before {
   height: 100%;
   background-image: url("../img/forsidebaggrund.jpg");
   background-size: cover;
-  background-position:center;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   opacity: 0.2;
@@ -445,8 +446,7 @@ main {
   justify-content: space-between;
   padding: 24px 16px;
   flex-direction: column;
-  gap: 6px
-  
+  gap: 6px;
 }
 
 .location-header {
@@ -455,10 +455,8 @@ main {
   font-weight: 700;
   color: #000;
   margin-bottom: 16px;
-  flex-direction: row
+  flex-direction: row;
 }
-
-
 
 /* --- ALLE SPIL (grid) --- */
 .game-list-all {
@@ -475,12 +473,12 @@ main {
 
 .top-card img {
   width: 100%;
-  max-width: 180px;   /* or whatever max width you want */
+  max-width: 180px; /* or whatever max width you want */
   height: 160px;
   object-fit: contain;
   display: block;
   margin: 0 auto;
-  background: #fff;   /* optional: gives a background if image is not full */
+  background: #fff; /* optional: gives a background if image is not full */
 }
 
 /* --- RESPONSIVE --- */
@@ -491,7 +489,7 @@ main {
     padding: 20px;
   }*/
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .game-list-all {
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     gap: 16px;
@@ -509,20 +507,19 @@ main {
   }
 }
 
-  .location-section h2 {
-    font-size: 22px;
-  }
+.location-section h2 {
+  font-size: 22px;
+}
 
-  .game-scroll .game-card {
-    width: 180px;
-  }
+.game-scroll .game-card {
+  width: 180px;
+}
 
-  .game-list-all {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 16px;
-  }
-
+.game-list-all {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 16px;
+}
 
 /* =====================
    SPIL GRID & CARDS
@@ -554,19 +551,16 @@ main {
 }
 
 #dialog-content {
-
   display: flex;
   flex-direction: column;
   max-height: calc(90vh - 40px);
-  overflow-y:auto; 
-  
+  overflow-y: auto;
 }
 
 #dialog-content img {
   width: 100%;
   height: 350px;
   object-fit: contain;
-  
 }
 
 .dialog-details {
@@ -575,7 +569,7 @@ main {
   flex-direction: column;
 }
 
-.modal{
+.modal {
   margin-top: 100px;
 }
 
@@ -615,16 +609,16 @@ main {
 
 /* Difficulty colors */
 .difficulty-easy {
-  background-color: #4CAF50; 
+  background-color: #4caf50;
 }
 
 .difficulty-medium {
-  background-color: #FFC107;  
-  color: #333 !important;     
+  background-color: #ffc107;
+  color: #333 !important;
 }
 
 .difficulty-hard {
-  background-color:#F44336; 
+  background-color: #f44336;
 }
 
 footer {
