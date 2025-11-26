@@ -95,24 +95,9 @@ function displayGame(game) {
             <img src="${game.image}" 
             alt="${game.title}" 
             class="game-image" />
-            <div class="age-tag">${game.age}</div>
-            <div class="rating-tag">${game.rating}</div>
-            <div class="difficulty-tag">${game.difficulty}</div>
         </section>
         <section class="bottom-card">
-            <h2 class="card-titel">${game.title}</h2>
-            <div class="tags">
-                <p>${game.genre}</p>
-            </div>
-            <div class="tags">
-                <p>${game.playtime}</p>
-            </div>
-            <div class="tags">
-                <p>${game.players.min}-${game.players.max}</p>
-            </div>
-            <div class="tags">
-                <p>${game.language}</p>
-            </div>
+        <article class="card-header-container"><h2>${game.title}</h2></article>
         </section>
     </article>
   `;

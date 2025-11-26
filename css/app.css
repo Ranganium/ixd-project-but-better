@@ -23,7 +23,7 @@
   --info-grey: #f1f1f1;
   --tag-fill: #ffffff;
   --card-fill: #fafafa;
-  --rating-yellow-gradient: #f7dc58;
+  --rating-yellow: #f7dc58;
 
   /* Effect styles */
   --shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16);
@@ -36,161 +36,60 @@
 }
 
 .spilgalleri-titel {
-  font-family: var(--header-font-family);
-  font-size: var(--spilgalleri-titel-fontsize);
+  font-family: var(--header-font);
+  font-size: var(--infosite-title-size);
 }
 
 /* Card in general */
 /* Card */
 .game-card {
-  width: 100%;
   display: flex;
+  width: 172.5px;
   flex-direction: column;
-  position: relative;
-  border-radius: 16px;
-  background: var(--card-background-color);
-  box-shadow: var(--shadow);
-  z-index: 1;
-}
-
-/* Tags */
-.tags {
-  padding: 8px 4px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  border: 0.5px solid var(--tag-border-color);
-  background: var(--tag-background-color);
-  box-shadow: var(--shadow);
-  height: 15px;
-}
-
-.tags p {
-  font-family: var(--tag-font-family);
-  font-size: var(--tag-fontsize);
-  font-style: normal;
-  font-weight: 700;
-  line-height: 15px;
-  letter-spacing: -0.11px;
-}
-
-/* Øvre card */
-.top-card {
-  position: relative;
-  width: 100%;
-  height: 160px;
-  border-radius: 16px 16px 0 0;
-  overflow: hidden;
-}
-
-/* Rating på billede */
-.rating {
-  display: inline-flex;
-  padding: 4px 8px 4px 4px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border-radius: 0 16px 16px 0;
-  background: var(--rating-yellow-gradient);
-  box-shadow: var(--shadow);
-  z-index: 20;
-}
-
-.rating p {
-  font-family: var(--tag-font-family);
-  font-size: var(--rating-card-fontsize);
-  color: black;
-}
-
-/* Aldersgrænse på billede */
-.age {
-  display: inline-flex;
-  padding: 4px 12px 4px 8px;
-  justify-content: flex-end;
   align-items: flex-start;
-  gap: 8px;
-  border-radius: 16px 0 0 16px;
-  background: var(--card-background-color);
-  z-index: 20;
-}
-
-.age p {
-  font-family: var(--tag-font-family);
-  font: var(--rating-card-fontsize);
-  color: black;
-}
-
-/* Sværhedsgrad på billede */
-.difficulty {
-  display: inline-flex;
-  padding: 4px 8px 4px 4px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border-radius: 0 16px 16px 0;
-  background: var(--card-background-color);
+  border-radius: 16px;
+  background: var(--card-fill);
   box-shadow: var(--shadow);
-  z-index: 20;
-  position: absolute;
-  bottom: 135px;
-  left: 0;
-}
-
-.difficulty p {
-  font-family: var(--tag-font-family);
-  font: var(--rating-card-fontsize);
-  color: black;
 }
 
 /* Billede af brætspil */
 .game-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: var(--card-background-color);
-  transition: var(--transition);
+  height: 160px;
+  align-self: stretch;
   border-radius: 16px 16px 0 0;
-  display: block;
 }
 
 /* Nedre card */
 .bottom-card {
-  width: 100%;
-  padding: 8px 16px;
-  box-sizing: border-box;
-  border-radius: 0 0 16px 16px;
-  background: var(--card-background-color);
   display: flex;
+  padding: 4px 8px 8px 8px;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-}
-
-.difficulty-tag {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: #e0e0e0;
-  color: #333;
-  font-family: var(--tag-font-family);
-  font-size: var(--tag-fontsize);
-  padding: 4px 10px;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  z-index: 20;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-.card-titel {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   align-self: stretch;
-  font-family: var(--header-font-family);
-  font-size: var(--card-fontsize-header-1);
-  margin: 0;
-  padding: 0;
+  background: var(--card-fill);
+  border-radius: 0 0 16px 16px;
+}
+
+.card-header-container {
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.card-header-container h2 {
+  flex: 1 0 0;
+  color: #000;
+  text-shadow: var(--shadow);
+  font-family: var(--header-font);
+  font-size: var(--card-size);
+  font-style: normal;
+  font-weight: var(--card-font-weight);
+  line-height: var(--poppins-line-height);
+  letter-spacing: var(--card-letter-spacing);
 }
 
 .tags {
@@ -205,6 +104,90 @@
   box-shadow: var(--shadow);
 }
 
+/* Tags */
+.tags {
+  display: inline-flex;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 16px;
+  border: 0.5px solid var(--tag-border);
+  background: var(--tag-fill);
+  box-shadow: var(--shadow);
+}
+
+.tags p {
+  color: var(--logo-red);
+  font-family: var(--others-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: var(--tag-letter-spacing);
+}
+
+.tag img {
+  display: flex;
+  height: 16px;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+}
+
+.tag div {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tag div p {
+  color: var(--logo-red);
+  font-family: var(--others-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: var(--tag-letter-spacing);
+}
+
+.red-tag {
+  display: flex;
+  width: 100px;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 12px;
+  border: 0.5px solid var(--tag-border);
+  background: var(--logo-red);
+  box-shadow: var(--shadow);
+}
+
+.rating img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  fill: var(--rating-yellow);
+}
+
+.rating p {
+  color: var(--info-grey);
+  font-family: var(--others-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: var(--tag-font-weight);
+  line-height: normal;
+  letter-spacing: var(--tag-letter-spacing);
+}
+/* Øvre card */
+.top-card {
+  height: 160px;
+  align-self: stretch;
+  border-radius: 16px 16px 0 0;
+}
+
 /* FORSIDE */
 
 body {
@@ -215,36 +198,6 @@ body {
   align-items: center;
   background-color: white;
   position: relative;
-}
-
-/* Baggrundsbilledet */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/forsidebaggrund.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 0.2;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.splash-screen {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
-  transition: opacity 1s ease;
 }
 
 .logo {
@@ -404,7 +357,7 @@ footer {
   padding-bottom: 80px;
   margin-top: auto;
   display: flex;
-  justify-content: center;
+  columns: 172.5px;
 }
 
 .dropbtn {
@@ -440,14 +393,6 @@ main {
 }
 
 /* --- SEKTIONER --- */
-.location-section {
-  margin-bottom: 18px;
-  display: flex;
-  justify-content: space-between;
-  padding: 24px 16px;
-  flex-direction: column;
-  gap: 6px;
-}
 
 .location-header {
   font-family: var(--header-font-family);
@@ -460,15 +405,7 @@ main {
 
 /* --- ALLE SPIL (grid) --- */
 .game-list-all {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 16px;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  justify-items: stretch;
-  align-items: start;
+  columns: 172.5px;
 }
 
 .top-card img {
@@ -479,46 +416,6 @@ main {
   display: block;
   margin: 0 auto;
   background: #fff; /* optional: gives a background if image is not full */
-}
-
-/* --- RESPONSIVE --- */
-
-/*@media (max-width: 768px) {
-  main {
-    margin: 20px;
-    padding: 20px;
-  }*/
-
-@media screen and (max-width: 768px) {
-  .game-list-all {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-    gap: 16px;
-    padding: 12px;
-  }
-
-  .top-card {
-    height: 140px; /* Slightly smaller images on mobile */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .game-list-all {
-    padding: 8px;
-  }
-}
-
-.location-section h2 {
-  font-size: 22px;
-}
-
-.game-scroll .game-card {
-  width: 180px;
-}
-
-.game-list-all {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 16px;
 }
 
 /* =====================
