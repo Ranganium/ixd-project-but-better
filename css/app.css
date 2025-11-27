@@ -1,10 +1,11 @@
 :root {
   /* typography */
-  --header-font: "poppins";
-  --others-font: "inter";
+  --header-font: "Poppins";
+  --others-font: "Inter";
 
   --tag-size: 16px;
   --card-size: 16px;
+  --a-bit-bigger-than-tag-size: 18px;
   --infosite-title-size: 32px;
 
   --tag-font-weight: 500;
@@ -127,33 +128,17 @@
   letter-spacing: var(--tag-letter-spacing);
 }
 
-.tag img {
+.tags svg {
   display: flex;
   height: 16px;
-  justify-content: center;
   align-items: center;
   aspect-ratio: 1/1;
-}
-
-.tag div {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.tag div p {
-  color: var(--logo-red);
-  font-family: var(--others-font);
-  font-size: var(--tag-size);
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: var(--tag-letter-spacing);
 }
 
 .red-tag {
   display: flex;
   width: 100px;
+  height: 27px;
   padding: 4px 8px;
   justify-content: center;
   align-items: center;
@@ -164,22 +149,12 @@
   box-shadow: var(--shadow);
 }
 
-.rating img {
-  width: 16px;
-  height: 16px;
+.red-tag svg {
+  width: 2px;
+  height: 2px;
   flex-shrink: 0;
   aspect-ratio: 1/1;
   fill: var(--rating-yellow);
-}
-
-.rating p {
-  color: var(--info-grey);
-  font-family: var(--others-font);
-  font-size: var(--tag-size);
-  font-style: normal;
-  font-weight: var(--tag-font-weight);
-  line-height: normal;
-  letter-spacing: var(--tag-letter-spacing);
 }
 /* Øvre card */
 .top-card {
@@ -237,7 +212,7 @@ footer {
 .location h2 {
   color: #000;
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--header-font);
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -259,7 +234,7 @@ footer {
   background: #ebdfd7;
   color: #000;
   font-size: 36px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--header-font);
   font-weight: 400;
   text-decoration: none;
   border-radius: 15px;
@@ -356,7 +331,6 @@ footer {
   padding-top: 180px;
   padding-bottom: 80px;
   margin-top: auto;
-  display: flex;
   columns: 172.5px;
 }
 
@@ -395,7 +369,7 @@ main {
 /* --- SEKTIONER --- */
 
 .location-header {
-  font-family: var(--header-font-family);
+  font-family: var(--header-font);
   font-size: 28px;
   font-weight: 700;
   color: #000;
@@ -434,7 +408,7 @@ main {
   max-height: 90vh;
   border: none;
   border-radius: 16px;
-  background: var(--card-background-color);
+  background: var(--card-fill);
   color: var(--description-fontsize-paragraph);
   box-shadow: var(--shadow-lg);
   padding: 20px;
@@ -460,31 +434,140 @@ main {
   object-fit: contain;
 }
 
-.dialog-details {
-  padding: 20px;
+.dialog-bottom-content {
   display: flex;
+  height: 515px;
   flex-direction: column;
+  align-items: flex-start;
+  gap: -72px;
+  flex-shrink: 0;
+}
+
+.dialog-details {
+  display: flex;
+  padding: 4px 0;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+
+.dialog-details p {
+  flex: 1 0 0;
+  color: #000;
+  text-shadow: var(--shadow);
+  font-family: var(--others-font);
+  font-size: var(--a-bit-bigger-than-tag-size);
+  font-style: normal;
+  font-weight: var(--tag-font-weight);
+  line-height: normal;
 }
 
 .modal {
   margin-top: 100px;
 }
 
-.dialog-details h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  font-family: var(--header-font-family);
+.infosite-header-container {
+  display: flex;
+  padding: 0 4px;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+.infosite-header-container h2 {
+  color: #000;
+  text-shadow: var(--shadow);
+  font-family: var(--header-font);
+  font-size: var(--infosite-title-size);
+  font-style: normal;
+  font-weight: var(--infosite-title-font-weight);
+  line-height: var(--poppins-line-height);
+  letter-spacing: var(--infosite-title-letter-spacing);
 }
 
-.dialog-details p {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-family: var(--paragraph-font-family);
+.dialog-tag-container {
+  display: flex;
+  height: 74px;
+  padding: 15px 4px;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+  align-self: stretch;
+  flex-wrap: wrap;
 }
 
-.dialog-details .game-description {
-  margin-top: 1rem;
-  line-height: 1.6;
+.dialog-tag-container p {
+  color: var(--logo-red);
+}
+
+.red-section {
+  display: flex;
+  align-items: center;
+}
+
+.red-section p {
+  color: var(--info-grey);
+  font-family: var(--others-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: var(--tag-font-weight);
+  line-height: normal;
+  letter-spacing: var(--tag-letter-spacing);
+}
+
+.red-section svg {
+  width: 64px;
+  height: 64px;
+  fill: var(--logo-red);
+  filter: var(--shadow);
+}
+
+.rating-section {
+  display: flex;
+  width: 377px;
+  height: 132px;
+  padding: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 0 0 16px 16px;
+  background: var(--info-grey);
+}
+
+.rating-stars {
+  display: flex;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-stars svg {
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1/1;
+}
+
+.send-btn {
+  display: flex;
+  width: 155px;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 16px;
+  border: 1px solid var(--tag-border);
+  box-shadow: var(--shadow);
+}
+
+.send-btn p {
+  color: var(--logo-red);
+  text-align: center;
+  font-family: var(--tag-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: var(--tag-font-weight);
+  line-height: normal;
+  letter-spacing: var(--tag-letter-spacing);
 }
 
 /*Sværhedgrads knap på Dialog*/
@@ -498,7 +581,7 @@ main {
 .dialog-tags .difficulty-tag {
   padding: 4px 12px;
   border-radius: 16px;
-  font-family: var(--tag-font-family);
+  font-family: var(--tag-font);
   font-size: var(--tag-fontsize);
   font-weight: bold;
   color: white;
@@ -519,5 +602,5 @@ main {
 }
 
 footer {
-  font-family: var(--paragraph-font-family);
+  font-family: var(--others-font);
 }
