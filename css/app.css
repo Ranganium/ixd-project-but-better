@@ -107,7 +107,7 @@
 
 /* Tags */
 .tags {
-  display: inline-flex;
+  display: flex;
   padding: 4px 8px;
   justify-content: center;
   align-items: center;
@@ -129,9 +129,7 @@
 }
 
 .tags svg {
-  display: flex;
   height: 16px;
-  align-items: center;
   aspect-ratio: 1/1;
 }
 
@@ -150,12 +148,12 @@
 }
 
 .red-tag svg {
-  width: 2px;
-  height: 2px;
-  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
   aspect-ratio: 1/1;
   fill: var(--rating-yellow);
 }
+
 /* Øvre card */
 .top-card {
   height: 160px;
@@ -404,16 +402,24 @@ main {
 
 /* ====== DIALOG ====== */
 #game-dialog {
-  width: min(800px, 90%);
-  max-height: 90vh;
+  display: flex;
+  align-items: flex-start;
+  width: min(393px, 90%);
   border: none;
   border-radius: 16px;
   background: var(--card-fill);
-  color: var(--description-fontsize-paragraph);
-  box-shadow: var(--shadow-lg);
-  padding: 20px;
+  box-shadow: var(--shadow);
+  padding: 8px;
   overflow: hidden;
   animation: fadeIn 0.3s ease;
+}
+
+#close-dialog {
+  width: 24px;
+  height: 24px;
+  aspect-ratio: 1/1;
+  background: none;
+  border: none;
 }
 
 #game-dialog::backdrop {
@@ -423,9 +429,13 @@ main {
 
 #dialog-content {
   display: flex;
+  width: 393px;
+  height: 852px;
+  padding: 8px;
   flex-direction: column;
-  max-height: calc(90vh - 40px);
-  overflow-y: auto;
+  align-items: flex-start;
+  gap: 4px;
+  background: #fff;
 }
 
 #dialog-content img {
@@ -514,7 +524,7 @@ main {
   letter-spacing: var(--tag-letter-spacing);
 }
 
-.red-section svg {
+.red-section img {
   width: 64px;
   height: 64px;
   fill: var(--logo-red);
@@ -533,6 +543,17 @@ main {
   background: var(--info-grey);
 }
 
+.rating-section h3 {
+  color: #000;
+  text-shadow: var(--shadow);
+  font-family: var(--header-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: var(--card-font-weight);
+  line-height: 150%;
+  letter-spacing: -0.22px;
+}
+
 .rating-stars {
   display: flex;
   padding: 4px;
@@ -541,7 +562,7 @@ main {
   gap: 4px;
 }
 
-.rating-stars svg {
+.rating-stars img {
   width: 32px;
   height: 32px;
   aspect-ratio: 1/1;
