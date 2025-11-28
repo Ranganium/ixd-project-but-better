@@ -34,7 +34,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid red;
 }
 
 .spilgalleri-titel {
@@ -104,6 +103,7 @@
   border: 0.5px solid var(--tag-border-color);
   background: var(--card-background-color);
   box-shadow: var(--shadow);
+  height: 27px;
 }
 
 /* Tags */
@@ -430,7 +430,7 @@ main {
 
 #dialog-content {
   display: flex;
-  width: 393px;
+  width: 100%;
   height: 852px;
   padding: 8px;
   flex-direction: column;
@@ -452,6 +452,7 @@ main {
   align-items: flex-start;
   gap: -72px;
   flex-shrink: 0;
+  width: 100%;
 }
 
 .dialog-details {
@@ -460,6 +461,7 @@ main {
   flex-direction: column;
   align-items: center;
   align-self: stretch;
+  width: 100%;
 }
 
 .dialog-details p {
