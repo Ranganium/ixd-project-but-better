@@ -34,6 +34,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  outline: 1px solid red;
 }
 
 .spilgalleri-titel {
@@ -402,7 +403,7 @@ main {
 
 /* ====== DIALOG ====== */
 #game-dialog {
-  display: flex;
+  display: none;
   align-items: flex-start;
   width: min(393px, 90%);
   border: none;
@@ -497,12 +498,13 @@ main {
 .dialog-tag-container {
   display: flex;
   height: 74px;
-  padding: 15px 4px;
+  padding: 16px 4px;
   align-items: center;
   align-content: center;
   gap: 8px;
   align-self: stretch;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .dialog-tag-container p {

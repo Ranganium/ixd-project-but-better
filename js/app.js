@@ -141,6 +141,7 @@ function getDifficultyClass(difficulty) {
 function showGameModal(id) {
   const game = allGames.find((g) => g.id == id);
   if (!game) return;
+  document.querySelector("#game-dialog").style.display = "block";
 
   document.querySelector("#dialog-content").innerHTML = /*html*/ `
 
@@ -311,6 +312,7 @@ function showGameModal(id) {
 // Luk dialog på klik af X
 document.querySelector("#close-dialog").addEventListener("click", () => {
   document.querySelector("#game-dialog").close();
+  document.querySelector("#game-dialog").style.display = "none";
 });
 
 // Dropdown-menu //// Åbn/luk dropdowns
