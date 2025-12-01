@@ -51,13 +51,16 @@
   border-radius: 16px;
   background: var(--card-fill);
   box-shadow: var(--shadow);
+  break-inside: avoid;
+  margin-bottom: 16px;
 }
 
 /* Billede af brætspil */
 .game-image {
   height: 160px;
   align-self: stretch;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
+  background-color: var(--info-grey);
 }
 
 /* Nedre card */
@@ -329,8 +332,13 @@ footer {
 .main-content {
   padding-top: 180px;
   padding-bottom: 80px;
-  margin-top: auto;
-  columns: 172.5px;
+
+  max-width: calc((172.5px * 4) + (16px * 3));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 172.5px);
+  gap: 16px;
 }
 
 .dropbtn {
@@ -405,12 +413,12 @@ main {
 #game-dialog {
   display: none;
   align-items: flex-start;
-  width: min(393px, 90%);
+  width: fit-content;
   border: none;
   border-radius: 16px;
   background: var(--card-fill);
   box-shadow: var(--shadow);
-  padding: 8px;
+  padding: 6px;
   overflow: hidden;
   top: 50%;
   left: 50%;
@@ -424,6 +432,10 @@ main {
   aspect-ratio: 1/1;
   background: none;
   border: none;
+  right: 0;
+}
+
+#close-dialog svg {
 }
 
 #game-dialog::backdrop {
@@ -433,12 +445,11 @@ main {
 
 #dialog-content {
   display: flex;
-  width: 100%;
+  width: 385px;
   height: 100%;
-  padding: 8px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 8px;
   background: #fff;
 }
 
@@ -452,10 +463,12 @@ main {
   display: flex;
   height: 515px;
   flex-direction: column;
-  align-items: flex-start;
-  gap: -72px;
+  align-items: center;
+
   flex-shrink: 0;
   width: 100%;
+  overflow: auto;
+  padding: 4px;
 }
 
 .dialog-details {
@@ -464,7 +477,11 @@ main {
   flex-direction: column;
   align-items: center;
   align-self: stretch;
-  width: 100%;
+  width: 377px;
+  border-radius: 12px;
+  background: var(--info-grey);
+  padding: 8px 8px 16px 8px;
+  gap: 8px;
 }
 
 .dialog-details p {
@@ -476,6 +493,7 @@ main {
   font-style: normal;
   font-weight: var(--tag-font-weight);
   line-height: normal;
+  padding: 0 4px 0 4px;
 }
 
 .modal {
@@ -517,8 +535,9 @@ main {
 }
 
 .red-section {
-  display: flex;
-  align-items: center;
+  width: fit-content;
+  position: relative;
+  height: fit-content;
 }
 
 .red-section p {
@@ -531,11 +550,28 @@ main {
   letter-spacing: var(--tag-letter-spacing);
 }
 
-.red-section img {
-  width: 64px;
-  height: 64px;
-  fill: var(--logo-red);
-  filter: var(--shadow);
+.red-things {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  padding: 0 16px 0 16px;
+  gap: 36px;
+}
+
+.red-things p {
+  width: 116px;
+}
+.red-section-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .rating-section {
@@ -548,6 +584,7 @@ main {
   gap: 8px;
   border-radius: 0 0 16px 16px;
   background: var(--info-grey);
+  margin-top: -4px;
 }
 
 .rating-section h3 {
@@ -583,12 +620,12 @@ main {
   align-items: center;
   gap: 8px;
   border-radius: 16px;
-  border: 1px solid var(--tag-border);
+  background-color: var(--tag-border);
   box-shadow: var(--shadow);
 }
 
 .send-btn p {
-  color: var(--logo-red);
+  color: #fff;
   text-align: center;
   font-family: var(--tag-font);
   font-size: var(--tag-size);
@@ -604,15 +641,6 @@ main {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
-}
-
-.dialog-tags .difficulty-tag {
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-family: var(--tag-font);
-  font-size: var(--tag-fontsize);
-  font-weight: bold;
-  color: white;
 }
 
 /* Difficulty colors */
