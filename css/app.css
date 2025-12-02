@@ -323,19 +323,86 @@ footer {
 
 /*SPILGALLERISIDE*/
 /*Navbar*/
-.navbar {
+.spiloversigt-nav {
   display: flex;
+  width: 393px;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-  border-bottom: 1px solid #eee;
-  z-index: 1000;
-  height: 56px;
+  border-radius: 0 0 12px 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.spiloversigt-nav-grid {
+  display: grid;
+  height: 130px;
+  align-self: stretch;
+  grid-template-rows: minmax(0, 1fr) 46px 35px;
+  grid-template-columns: 120px 152px 120px;
+  border-radius: 0 0 12px 12px;
+}
+
+.hamburgermenu-grid-container {
+  display: flex;
+  padding: 8px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 1;
+  justify-self: stretch;
+}
+
+.searchbar-grid-container {
+  display: flex;
+  height: 33px;
+  padding: 8px 16px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  align-self: start;
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+  justify-self: stretch;
+}
+
+.game-count-grid-container {
+  display: flex;
+  padding: 4px 16px;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+  justify-self: stretch;
+}
+
+.spilgalleri-titel {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+  justify-self: stretch;
+  color: var(--logo-red);
+  text-align: center;
+  font-family: var(--header-font);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: var(--poppins-line-height);
+  letter-spacing: -0.264px;
+}
+
+.filter-grid-container {
+  display: flex;
+  padding: 0 16px 8px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  grid-row: 3 / span 1;
+  grid-column: 3 / span 1;
+  justify-self: stretch;
+  border-radius: 0 0 12px 0;
 }
 
 .title {
