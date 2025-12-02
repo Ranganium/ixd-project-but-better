@@ -1,7 +1,7 @@
 :root {
   /* typography */
   --header-font: "Poppins";
-  --others-font: "Inter";
+  --other-font: "Inter";
 
   --tag-size: 16px;
   --card-size: 16px;
@@ -124,7 +124,7 @@
 
 .tags p {
   color: var(--logo-red);
-  font-family: var(--others-font);
+  font-family: var(--other-font);
   font-size: var(--tag-size);
   font-style: normal;
   font-weight: 500;
@@ -171,7 +171,7 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   background-color: white;
   position: relative;
@@ -287,7 +287,7 @@ footer {
 
 .button-card-bottom p {
   color: #000;
-  font-family: var(--tag-font);
+  font-family: var(--other-font);
   font-size: var(--tag-size);
   font-style: normal;
   font-weight: 100;
@@ -324,22 +324,33 @@ footer {
 /*SPILGALLERISIDE*/
 /*Navbar*/
 .spiloversigt-nav {
-  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 393px;
+  max-width: 100%;
   flex-direction: column;
   align-items: center;
   border-radius: 0 0 12px 12px;
   background: #fff;
   box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.spiloversigt-nav.hidden {
+  transform: translate(-50%, -130px);
 }
 
 .spiloversigt-nav-grid {
   display: grid;
-  height: 130px;
+  height: 100%;
   align-self: stretch;
-  grid-template-rows: minmax(0, 1fr) 46px 35px;
+  grid-template-rows: 50px 45px 45px;
   grid-template-columns: 120px 152px 120px;
   border-radius: 0 0 12px 12px;
+  transition: grid-template-rows 0.3s ease-out;
 }
 
 .hamburgermenu-grid-container {
@@ -357,14 +368,16 @@ footer {
 .searchbar-grid-container {
   display: flex;
   height: 33px;
-  padding: 8px 16px;
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
-  align-self: start;
-  grid-row: 2 / span 1;
-  grid-column: 3 / span 1;
+  grid-row: 2 / span 2;
+  grid-column: 2 / span 2;
   justify-self: stretch;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  padding-right: 8px;
+  padding-left: 4px;
 }
 
 .game-count-grid-container {
@@ -378,8 +391,17 @@ footer {
   justify-self: stretch;
 }
 
+.game-count-grid-container p {
+  font-family: var(--other-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: var(--tag-letter-spacing);
+}
+
 .spilgalleri-titel {
-  grid-row: 2 / span 1;
+  grid-row: 3 / span 1;
   grid-column: 2 / span 1;
   justify-self: stretch;
   color: var(--logo-red);
@@ -394,9 +416,9 @@ footer {
 
 .filter-grid-container {
   display: flex;
-  padding: 0 16px 8px 8px;
+  padding: 0px 8px 8px 8px;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 8px;
   align-self: stretch;
   grid-row: 3 / span 1;
@@ -405,26 +427,36 @@ footer {
   border-radius: 0 0 12px 0;
 }
 
+.filter-grid-container button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .title {
   font-size: 1.4rem;
   font-weight: 700;
   text-align: center;
 }
 
-.navbar .back-btn a {
+.back-btn {
   list-style: none;
   text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
-  color: black;
 }
 
-.search-btn {
-  background: none;
-  border: none;
-  font-size: 1.3rem;
-  cursor: pointer;
+#search-input {
+  position: relative;
+  height: 100%;
+  padding: 8px 16px;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: start;
+  border-radius: 16px;
+  border: solid 0.5px var(--tag-border);
 }
 
 /* Filter bar */
@@ -444,18 +476,6 @@ footer {
   width: 100%;
   box-sizing: border-box;
   z-index: 999;
-}
-
-.main-content {
-  padding-top: 180px;
-  padding-bottom: 80px;
-
-  max-width: calc((172.5px * 4) + (16px * 3));
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(4, 172.5px);
-  gap: 16px;
 }
 
 .dropbtn {
@@ -502,9 +522,6 @@ main {
 }
 
 /* --- ALLE SPIL (grid) --- */
-.game-list-all {
-  columns: 172.5px;
-}
 
 .top-card img {
   width: 100%;
@@ -519,11 +536,17 @@ main {
 /* =====================
    SPIL GRID & CARDS
    ===================== */
-#game-list-all {
+
+.game-list-all {
+  padding-top: 180px;
+  padding-bottom: 80px;
+
+  max-width: calc((172.5px * 4) + (16px * 3));
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  padding: 10rem 0;
+  grid-template-columns: repeat(4, 172.5px);
+  gap: 16px;
 }
 
 /* ====== DIALOG ====== */
@@ -602,7 +625,7 @@ main {
   flex: 1 0 0;
   color: #000;
   text-shadow: var(--shadow);
-  font-family: var(--others-font);
+  font-family: var(--other-font);
   font-size: var(--a-bit-bigger-than-tag-size);
   font-style: normal;
   font-weight: var(--tag-font-weight);
@@ -656,7 +679,7 @@ main {
 
 .red-section p {
   color: var(--info-grey);
-  font-family: var(--others-font);
+  font-family: var(--other-font);
   font-size: var(--tag-size);
   font-style: normal;
   font-weight: var(--tag-font-weight);
@@ -741,7 +764,7 @@ main {
 .send-btn p {
   color: #fff;
   text-align: center;
-  font-family: var(--tag-font);
+  font-family: var(--other-font);
   font-size: var(--tag-size);
   font-style: normal;
   font-weight: var(--tag-font-weight);
@@ -772,5 +795,5 @@ main {
 }
 
 footer {
-  font-family: var(--others-font);
+  font-family: var(--other-font);
 }

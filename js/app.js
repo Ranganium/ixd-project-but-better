@@ -62,8 +62,15 @@ let allGames = [];
 async function getGames() {
   const response = await fetch("../data/games.json");
   allGames = await response.json();
+
   console.log("📁 Games loaded:", allGames.length);
-  // populateCategoryDropdown(); // Remove or comment out if not implemented
+
+  // ➜ Tilføj <p> inde i #game-count
+  const gc = document.querySelector("#game-count");
+  if (gc) {
+    gc.innerHTML = `<p>${allGames.length} spil</p>`;
+  }
+
   displayGames(allGames);
 }
 
@@ -122,20 +129,6 @@ function showGameDetails(game) {
 
 📝 ${games.description}
   `);
-}
-
-//Game Card Dialog
-function getDifficultyClass(difficulty) {
-  switch (difficulty.toLowerCase()) {
-    case "let":
-      return "difficulty-easy";
-    case "mellem":
-      return "difficulty-medium";
-    case "svær":
-      return "difficulty-hard";
-    default:
-      return "";
-  }
 }
 
 function showGameModal(id) {
@@ -350,7 +343,6 @@ function filterGames() {
   const searchValue = document
     .querySelector("#search-input")
     .value.toLowerCase();
-  const difficultyValue = document.querySelector("#difficulty-select").value;
   const ageValue = document.querySelector("#age-select").value;
   const genreValue = document.querySelector("#genre-select").value;
   const playtimeValue = document.querySelector("#playtime-select").value;
@@ -364,15 +356,6 @@ function filterGames() {
     filteredGames = filteredGames.filter((game) => {
       // includes() checker om søgeteksten findes i titlen
       return game.title.toLowerCase().includes(searchValue);
-    });
-  }
-
-  // filtrer på valgt sværhedsgrad
-  if (difficultyValue !== "all") {
-    // Kun filtrer hvis ikke "all" er valgt
-    filteredGames = filteredGames.filter((game) => {
-      // Eksakt match på sværhedsgrad
-      return game.difficulty === difficultyValue;
     });
   }
 
@@ -419,9 +402,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("input", filterGames);
 
   // Event listeners til alle filter-dropdowns
-  document
-    .querySelector("#difficulty-select")
-    .addEventListener("change", filterGames);
   document.querySelector("#age-select").addEventListener("change", filterGames);
   document
     .querySelector("#genre-select")
@@ -430,23 +410,3 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector("#playtime-select")
     .addEventListener("change", filterGames);
 });
-
-//Vestergade spilgalleri
-function showVestergadeGames() {
-  if (!allGames || allGames.length === 0) {
-    return getGames().then(() => {
-      showVestergadeGames();
-      const filtered = allGames.filter(
-        (g) => g.location && g.location.toLowerCase().trim() === "verstergade"
-      );
-      displayGames(filtered);
-      return filtered;
-    });
-  }
-
-  const filtered = allGames.filter(
-    (g) => g.location && g.location.toLowerCase().trim() === "verstergade"
-  );
-  displayGames(filtered);
-  return Promise.resolve(filtered);
-}
