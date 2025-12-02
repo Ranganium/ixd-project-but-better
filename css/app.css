@@ -207,46 +207,96 @@ footer {
 /*LOCATIONSIDE*/
 
 .location {
-  position: relative;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  overflow: auto;
+  width: 100%;
+  margin-top: 700px;
+  padding-bottom: 32px;
 }
 
 .location h2 {
-  color: #000;
+  color: var(--logo-red);
   text-align: center;
+  text-shadow: var(--shadow);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #000;
   font-family: var(--header-font);
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: var(--poppins-line-height);
+  letter-spacing: -0.44px;
 }
 
 .button-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   align-items: center;
 }
 
-.button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 80px;
-  background: #ebdfd7;
-  color: #000;
-  font-size: 36px;
-  font-family: var(--header-font);
-  font-weight: 400;
+.button-card {
+  display: flex;
+  width: 345px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
   text-decoration: none;
-  border-radius: 15px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
 
+.button-card-top {
+  height: 128px;
+  width: 100%;
+  align-self: stretch;
+  border-radius: 16px 16px 0 0;
+
+  background: linear-gradient(
+      0deg,
+      rgba(191, 24, 29, 0.4) 0%,
+      rgba(191, 24, 29, 0.4) 100%
+    ),
+    var(--background-image-url) lightgray 50% / cover no-repeat;
+}
+
+.button-card-bottom {
+  display: flex;
+  padding: 8px 16px 16px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  background: #fafafa;
+}
+
+.button-card-bottom h3 {
+  color: #000;
+  text-shadow: var(--shadow);
+  font-family: var(--header-font);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: var(--card-font-weight);
+  line-height: var(--poppins-line-height);
+  letter-spacing: -0.264px;
+}
+
+.button-card-bottom p {
+  color: #000;
+  font-family: var(--tag-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 0.96px;
+}
+
 .button:hover {
-  background: #d8cfc3;
+  background: var(--logo-red);
   transform: translateY(-2px);
 }
 
@@ -433,9 +483,6 @@ main {
   background: none;
   border: none;
   right: 0;
-}
-
-#close-dialog svg {
 }
 
 #game-dialog::backdrop {

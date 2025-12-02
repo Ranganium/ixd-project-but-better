@@ -13,22 +13,16 @@
   
   <body>
     <header class="navbar">
-      <button class="back-btn">←</button>
-      <h1 class="spilgalleri-titel">Spilgalleri</h1>
-    <div class="filter-group search-group">
-    <input type="text" id="search-input" placeholder="🔍 Søg efter spil..." />
+      <div class="nav-grid">
+        <div class="hamburgermenu-grid-container"><button class="back-btn">←</button></div>
+        <div class="searchbar-grid-container"><input type="text" id="search-input" placeholder="🔍 Søg efter spil..." /></div>
+        <div class="game-count-grid-container"></div>
+        <h1 class="spilgalleri-titel">Spilgalleri</h1>
+        <div class="filter-grid-container"><div class="filter-group search-group"></div>
+        </div>
+      </div>
+      
     </header>
-    
-    <section class="filter-bar">  
-    <div class="filter-group">
-      <label for="difficulty-select"></label>
-      <select id="difficulty-select">
-        <option value="all">Sværhedsgrad</option>
-        <option value="Let">Let</option>
-        <option value="Mellem">Mellem</option>
-        <option value="Svær">Svær</option>
-      </select>
-    </div>
     
     <div class="filter-group">
       <label for="age-select"></label>
