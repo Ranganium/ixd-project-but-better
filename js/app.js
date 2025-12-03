@@ -193,7 +193,7 @@ function showGameModal(id) {
           </svg>
           <p>${game.rating}</p></div>
         </div>
-        <svg width="377" height="88" viewBox="0 0 377 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="auto" viewBox="0 0 377 88" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M268.5 0C246.754 0 229.06 17.3534 228.513 38.9678L228.487 41.0322C227.94 62.6466 210.246 80 188.5 80C166.754 80 149.06 62.6466 148.513 41.0322L148.487 38.9678C147.94 17.3534 130.246 0 108.5 0H268.5Z" fill="#F1F1F1"/>
           <path d="M364.148 8C371.246 8 377 13.3726 377 20V88H188.5C216.892 88 239.909 66.5097 239.909 40V44C239.909 24.1178 257.172 8 278.466 8H364.148Z" fill="#F1F1F1"/>
           <path d="M98.5341 8C119.828 8 137.091 24.1178 137.091 44V40C137.091 66.5097 160.108 88 188.5 88H0V20C2.76014e-07 13.3726 5.75416 8 12.8523 8H98.5341Z" fill="#F1F1F1"/>
@@ -410,3 +410,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector("#playtime-select")
     .addEventListener("change", filterGames);
 });
+
+const navbar = document.getElementById("navbar");
+
+function openSidebar() {
+  navbar.classList.add("show");
+}
+
+function closeSidebar() {
+  navbar.classList.remove("show");
+}

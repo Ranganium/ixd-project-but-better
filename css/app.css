@@ -139,7 +139,7 @@
 
 .red-tag {
   display: flex;
-  width: 100px;
+  width: 84px;
   height: 27px;
   padding: 4px 8px;
   justify-content: center;
@@ -170,6 +170,7 @@
 body {
   margin: 0;
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -328,7 +329,7 @@ footer {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: 100vw;
   max-width: 100%;
   flex-direction: column;
   align-items: center;
@@ -438,7 +439,7 @@ footer {
   text-align: center;
 }
 
-.back-btn {
+.hamburger-menu-btn {
   list-style: none;
   text-decoration: none;
   background: none;
@@ -453,7 +454,7 @@ footer {
   width: 100%;
   justify-content: flex-end;
   align-items: center;
-  align-self: start;
+  align-self: end;
   border-radius: 16px;
   border: solid 0.5px var(--tag-border);
 }
@@ -548,17 +549,23 @@ main {
   gap: 16px;
 }
 
+@media (max-width: 390px) {
+  .game-list-all {
+    grid-template-columns: repeat(2, 172.5px);
+  }
+}
+
 /* ====== DIALOG ====== */
 #game-dialog {
   display: none;
   align-items: flex-start;
-  width: fit-content;
+  width: 100%;
   border: none;
   border-radius: 16px;
   background: var(--card-fill);
   box-shadow: var(--shadow);
   padding: 6px;
-  overflow: hidden;
+  overflow: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -581,7 +588,7 @@ main {
 
 #dialog-content {
   display: flex;
-  width: 385px;
+  width: 100%;
   height: 100%;
   flex-direction: column;
   align-items: flex-start;
@@ -597,14 +604,14 @@ main {
 
 .dialog-bottom-content {
   display: flex;
-  height: 515px;
+  height: fit-content;
   flex-direction: column;
   align-items: center;
 
   flex-shrink: 0;
   width: 100%;
   overflow: auto;
-  padding: 4px;
+  padding: 10px;
 }
 
 .dialog-details {
@@ -613,7 +620,8 @@ main {
   flex-direction: column;
   align-items: center;
   align-self: stretch;
-  width: 377px;
+  width: 100%;
+  height: auto;
   border-radius: 12px;
   background: var(--info-grey);
   padding: 8px 8px 16px 8px;
@@ -671,7 +679,7 @@ main {
 }
 
 .red-section {
-  width: fit-content;
+  width: 100%;
   position: relative;
   height: fit-content;
 }
@@ -679,7 +687,7 @@ main {
 .red-section p {
   color: var(--info-grey);
   font-family: var(--other-font);
-  font-size: var(--tag-size);
+  font-size: 12px;
   font-style: normal;
   font-weight: var(--tag-font-weight);
   line-height: normal;
@@ -692,17 +700,13 @@ main {
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   position: absolute;
   z-index: 2;
   padding: 0 16px 0 16px;
-  gap: 36px;
 }
 
-.red-things p {
-  width: 116px;
-}
 .red-section-bg {
   position: absolute;
   top: 50%;
@@ -712,8 +716,8 @@ main {
 
 .rating-section {
   display: flex;
-  width: 377px;
-  height: 132px;
+  width: 100%;
+  height: 100%;
   padding: 8px;
   flex-direction: column;
   align-items: center;
@@ -771,28 +775,71 @@ main {
   letter-spacing: var(--tag-letter-spacing);
 }
 
-/*Sværhedgrads knap på Dialog*/
-
 .dialog-tags {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-/* Difficulty colors */
-.difficulty-easy {
-  background-color: #4caf50;
-}
-
-.difficulty-medium {
-  background-color: #ffc107;
-  color: #333 !important;
-}
-
-.difficulty-hard {
-  background-color: #f44336;
-}
-
 footer {
   font-family: var(--other-font);
+}
+
+nav {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    var(--logo-red) 50%,
+    rgba(191, 24, 29, 0.1) 120%
+  );
+  position: fixed;
+  z-index: 1001;
+  left: -100%;
+  transition: left 0.3s ease;
+  padding-left: 24px;
+  padding-top: 56px;
+}
+
+nav.show {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  left: 0;
+  gap: 24px;
+}
+
+#close-sidebar-btn {
+  background: none;
+  border: none;
+  transform: scale(1.5);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+}
+
+nav ul li {
+  color: #fff;
+  font-family: var(--other-font);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: var(--tag-line-height);
+  letter-spacing: -0.264px;
+}
+
+nav a {
+  width: 100%;
+}
+
+nav a.active-link {
+}
+
+nav a.accent-link {
 }
