@@ -213,7 +213,7 @@ footer {
   gap: 48px;
   overflow: auto;
   width: 100%;
-  margin-top: 700px;
+  margin-top: 32px;
   padding-bottom: 32px;
 }
 
@@ -328,7 +328,7 @@ footer {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 393px;
+  width: 100%;
   max-width: 100%;
   flex-direction: column;
   align-items: center;
@@ -348,7 +348,7 @@ footer {
   height: 100%;
   align-self: stretch;
   grid-template-rows: 50px 45px 45px;
-  grid-template-columns: 120px 152px 120px;
+  grid-template-columns: 31vw 38vw 31vw;
   border-radius: 0 0 12px 12px;
   transition: grid-template-rows 0.3s ease-out;
 }
@@ -377,7 +377,6 @@ footer {
   overflow: hidden;
   transition: all 0.3s ease-out;
   padding-right: 8px;
-  padding-left: 4px;
 }
 
 .game-count-grid-container {
@@ -538,7 +537,7 @@ main {
    ===================== */
 
 .game-list-all {
-  padding-top: 180px;
+  padding-top: 80px;
   padding-bottom: 80px;
 
   max-width: calc((172.5px * 4) + (16px * 3));
