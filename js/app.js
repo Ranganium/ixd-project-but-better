@@ -420,3 +420,11 @@ function openSidebar() {
 function closeSidebar() {
   navbar.classList.remove("show");
 }
+
+const themeSwitch = document.getElementById("theme-switch");
+
+if (themeSwitch) {
+  themeSwitch.addEventListener("click", () => {
+    document.body.classList.toggle("darkmode");
+  });
+}
