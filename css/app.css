@@ -19,15 +19,27 @@
   --poppins-line-height: 115%;
 
   /* Color styles */
+  --normal-text-color: black;
+  --base-color: #ffffff;
   --tag-border: #bf181d;
   --logo-red: #bf181d;
   --info-grey: #f1f1f1;
   --tag-fill: #ffffff;
-  --card-fill: #fafafa;
   --rating-yellow: #f7dc58;
 
   /* Effect styles */
   --shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16);
+}
+
+.darkmode {
+  /* Color styles */
+  --normal-text-color: #fff;
+  --base-color: #121524;
+  --tag-border: #121524;
+  --logo-red: #bf181d;
+  --info-grey: #2b3049;
+  --tag-fill: #121524;
+  --rating-yellow: #f7dc58;
 }
 
 * {
@@ -71,7 +83,7 @@
   align-items: flex-start;
   gap: 4px;
   align-self: stretch;
-  background: var(--card-fill);
+  background: var(--info-grey);
   border-radius: 0 0 16px 16px;
 }
 
@@ -86,7 +98,7 @@
 
 .card-header-container h2 {
   flex: 1 0 0;
-  color: #000;
+  color: var(--normal-text-color);
   text-shadow: var(--shadow);
   font-family: var(--header-font);
   font-size: var(--card-size);
@@ -146,7 +158,6 @@
   align-items: center;
   gap: 4px;
   border-radius: 12px;
-  border: 0.5px solid var(--tag-border);
   background: var(--logo-red);
   box-shadow: var(--shadow);
 }
@@ -163,6 +174,8 @@
   height: 160px;
   align-self: stretch;
   border-radius: 16px 16px 0 0;
+  background-color: var(--info-grey);
+  padding: 1px;
 }
 
 /* FORSIDE */
@@ -174,7 +187,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: var(--base-color);
   position: relative;
 }
 
@@ -223,7 +236,7 @@ footer {
   text-align: center;
   text-shadow: var(--shadow);
   -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-color: var(--normal-text-color);
   font-family: var(--header-font);
   font-size: 40px;
   font-style: normal;
@@ -245,7 +258,7 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   border-radius: 16px;
-  background: #fff;
+  background: var(--tag-fill);
   box-shadow: var(--shadow);
   text-decoration: none;
   cursor: pointer;
@@ -272,11 +285,12 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
-  background: #fafafa;
+  background: var(--info-grey);
+  border-radius: 0 0 16px 16px;
 }
 
 .button-card-bottom h3 {
-  color: #000;
+  color: var(--normal-text-color);
   text-shadow: var(--shadow);
   font-family: var(--header-font);
   font-size: 24px;
@@ -287,7 +301,7 @@ footer {
 }
 
 .button-card-bottom p {
-  color: #000;
+  color: var(--normal-text-color);
   font-family: var(--other-font);
   font-size: var(--tag-size);
   font-style: normal;
@@ -334,7 +348,7 @@ footer {
   flex-direction: column;
   align-items: center;
   border-radius: 0 0 12px 12px;
-  background: #fff;
+  background: var(--info-grey);
   box-shadow: var(--shadow);
   z-index: 1000;
   transition: transform 0.3s ease;
@@ -389,6 +403,10 @@ footer {
   grid-row: 3 / span 1;
   grid-column: 1 / span 1;
   justify-self: stretch;
+}
+
+.game-count-grid-container p {
+  color: var(--normal-text-color);
 }
 
 .game-count-grid-container p {
@@ -457,6 +475,8 @@ footer {
   align-self: end;
   border-radius: 16px;
   border: solid 0.5px var(--tag-border);
+  background-color: var(--tag-fill);
+  color: var(--normal-text-color);
 }
 
 /* Filter bar */
@@ -471,15 +491,15 @@ footer {
   top: 80px;
   left: 0;
   right: 0;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+  background-color: var(--tag-fill);
+  border-bottom: 1px solid var(--info-grey);
   width: 100%;
   box-sizing: border-box;
   z-index: 999;
 }
 
 .dropbtn {
-  background-color: #e9dfd7;
+  background-color: var(--info-grey);
   border: none;
   border-radius: 8px;
   padding: 8px 14px;
@@ -488,7 +508,7 @@ footer {
 }
 
 .filter-group select {
-  background-color: #e9dfd7;
+  background-color: var(--info-grey);
   border: none;
   appearance: none;
   border-radius: 20px;
@@ -516,7 +536,7 @@ main {
   font-family: var(--header-font);
   font-size: 28px;
   font-weight: 700;
-  color: #000;
+  color: var(--normal-text-color);
   margin-bottom: 16px;
   flex-direction: row;
 }
@@ -530,7 +550,7 @@ main {
   object-fit: contain;
   display: block;
   margin: 0 auto;
-  background: #fff; /* optional: gives a background if image is not full */
+  background: var(--base-color);
 }
 
 /* =====================
@@ -581,6 +601,10 @@ main {
   right: 0;
 }
 
+#close-dialog > :only-child {
+  fill: var(--normal-text-color);
+}
+
 #game-dialog::backdrop {
   background: rgba(2, 2, 2, 0.6);
   backdrop-filter: blur(2px);
@@ -593,7 +617,8 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  background: #fff;
+  background: var(--base-color);
+  border-radius: 16px;
 }
 
 #dialog-content img {
@@ -630,7 +655,7 @@ main {
 
 .dialog-details p {
   flex: 1 0 0;
-  color: #000;
+  color: var(--normal-text-color);
   text-shadow: var(--shadow);
   font-family: var(--other-font);
   font-size: var(--a-bit-bigger-than-tag-size);
@@ -652,7 +677,7 @@ main {
   align-self: stretch;
 }
 .infosite-header-container h2 {
-  color: #000;
+  color: var(--normal-text-color);
   text-shadow: var(--shadow);
   font-family: var(--header-font);
   font-size: var(--infosite-title-size);
@@ -685,13 +710,17 @@ main {
 }
 
 .red-section p {
-  color: var(--info-grey);
+  color: var(--normal-text-color);
   font-family: var(--other-font);
   font-size: 12px;
   font-style: normal;
   font-weight: var(--tag-font-weight);
   line-height: normal;
   letter-spacing: var(--tag-letter-spacing);
+}
+
+.red-section > :last-child * {
+  fill: var(--info-grey);
 }
 
 .red-things {
@@ -728,7 +757,7 @@ main {
 }
 
 .rating-section h3 {
-  color: #000;
+  color: var(--normal-text-color);
   text-shadow: var(--shadow);
   font-family: var(--header-font);
   font-size: 20px;
@@ -746,6 +775,10 @@ main {
   gap: 4px;
 }
 
+.rating-stars * {
+  stroke: var(--rating-yellow);
+}
+
 .rating-stars img {
   width: 32px;
   height: 32px;
@@ -760,12 +793,12 @@ main {
   align-items: center;
   gap: 8px;
   border-radius: 16px;
-  background-color: var(--tag-border);
+  background-color: var(--logo-red);
   box-shadow: var(--shadow);
 }
 
 .send-btn p {
-  color: #fff;
+  color: var(--normal-text-color);
   text-align: center;
   font-family: var(--other-font);
   font-size: var(--tag-size);
@@ -825,7 +858,7 @@ nav ul {
 }
 
 nav ul li {
-  color: #fff;
+  color: #ffffff;
   font-family: var(--other-font);
   font-size: 24px;
   font-style: normal;
