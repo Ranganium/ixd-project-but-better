@@ -65,11 +65,10 @@
 .game-card {
   display: flex;
   width: 172.5px;
-  height: fit-content;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 16px;
-  background: var(--card-fill);
+  background: var(--info-grey);
   box-shadow: var(--shadow);
   break-inside: avoid;
   margin-bottom: 16px;
@@ -114,19 +113,6 @@
   font-weight: var(--card-font-weight);
   line-height: var(--poppins-line-height);
   letter-spacing: var(--card-letter-spacing);
-}
-
-.tags {
-  display: flex;
-  padding: 4px 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border-radius: 16px;
-  border: 0.5px solid var(--tag-border-color);
-  background: var(--card-background-color);
-  box-shadow: var(--shadow);
-  height: 27px;
 }
 
 /* Tags */
@@ -273,7 +259,6 @@ body {
 .button-card-top {
   height: 128px;
   width: 100%;
-  align-self: stretch;
   border-radius: 16px 16px 0 0;
 
   background: linear-gradient(
@@ -581,13 +566,27 @@ main {
 }
 
 /* ====== DIALOG ====== */
+#filter-menu {
+  display: flex;
+  flex-direction: column;
+  width: 80vh;
+  border: none;
+  border-radius: 16px 16px 0 0;
+  background-color: var(--info-grey);
+  box-shadow: var(--shadow);
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.3s ease;
+}
+
 #game-dialog {
-  display: none;
   align-items: flex-start;
   width: 100%;
   border: none;
   border-radius: 16px;
-  background: var(--card-fill);
+  background: var(--info-grey);
   box-shadow: var(--shadow);
   padding: 6px;
   overflow: auto;
@@ -649,7 +648,6 @@ main {
   padding: 4px 0;
   flex-direction: column;
   align-items: center;
-  align-self: stretch;
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -699,7 +697,6 @@ main {
   align-items: center;
   align-content: center;
   gap: 8px;
-  align-self: stretch;
   flex-wrap: wrap;
   width: 100%;
 }

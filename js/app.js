@@ -8,16 +8,9 @@ if (document.querySelector(".splash-screen")) {
     const logo = document.querySelector(".logo");
     const splash = document.querySelector(".splash-screen");
 
-    // Logo-animation
     setTimeout(() => logo.classList.add("animate"), 800);
-
-    // Fade ud efter 2.5 sekunder
     setTimeout(() => splash.classList.add("fade-out"), 2500);
-
-    // Skift til location.html efter 3.5 sekunder
-    setTimeout(() => {
-      window.location.href = "sites/location.html";
-    }, 3500);
+    setTimeout(() => (window.location.href = "sites/location.html"), 3500);
   });
 }
 
@@ -27,49 +20,31 @@ if (document.querySelector(".splash-screen")) {
 
 if (document.querySelector(".location")) {
   document.addEventListener("DOMContentLoaded", () => {
-    const locationSection = document.querySelector(".location");
-
-    // Fade ind
-    setTimeout(() => locationSection.classList.add("fade-in"), 100);
+    setTimeout(
+      () => document.querySelector(".location").classList.add("fade-in"),
+      100
+    );
   });
 }
 
 /* ==========================
-   SPILGALLERI (navbar, dialog osv.)
+   SPILGALLERI
    ========================== */
-
-if (document.querySelector(".spilgalleri-titel")) {
-  console.log("🎮 Spilgalleri loaded");
-}
-
-// Back button (sikker måde)
-const backBtn = document.querySelector(".back-btn");
-if (backBtn) {
-  backBtn.addEventListener("click", () => {
-    window.location.href = "../sites/location.html";
-  });
-}
-
-// søg
-const searchInput = document.getElementById("search");
-if (searchInput) {
-  searchInput.addEventListener("input", () => displayGames(allGames)); // Adjust as needed
-}
 
 let allGames = [];
 
-// #2: Fetch games from JSON file
+const searchInput = document.getElementById("search");
+if (searchInput) {
+  searchInput.addEventListener("input", () => displayGames(allGames));
+}
+
+/* Fetch JSON */
 async function getGames() {
   const response = await fetch("../data/games.json");
   allGames = await response.json();
 
-  console.log("📁 Games loaded:", allGames.length);
-
-  // ➜ Tilføj <p> inde i #game-count
   const gc = document.querySelector("#game-count");
-  if (gc) {
-    gc.innerHTML = `<p>${allGames.length} spil</p>`;
-  }
+  if (gc) gc.innerHTML = `<p>${allGames.length} spil</p>`;
 
   displayGames(allGames);
 }
@@ -85,7 +60,6 @@ function displayGames(games) {
       '<p class="no-results">Ingen spil matchede dine filtre 😢</p>';
     return;
   }
-
   for (const game of games) {
     displayGame(game);
   }
@@ -115,20 +89,6 @@ function displayGame(game) {
   newCard.addEventListener("click", function () {
     showGameModal(game.id);
   });
-}
-
-// #6: Vis game details (Session 3 version - bliver erstattet med modal i Del 2)
-function showGameDetails(game) {
-  alert(`
-🎬 ${games.title} (${game.year})
-
-🎭 Genre: ${games.genre.join(", ")}
-⭐ Rating: ${games.rating}
-🎥 Director: ${games.director}
-👥 Actors: ${games.actors.join(", ")}
-
-📝 ${games.description}
-  `);
 }
 
 function showGameModal(id) {
@@ -331,8 +291,6 @@ document.querySelector("#close-dialog").addEventListener("click", () => {
   document.querySelector("#game-dialog").style.display = "none";
 });
 
-// Dropdown-menu //// Åbn/luk dropdowns
-
 // Load games on page load
 document.addEventListener("DOMContentLoaded", getGames);
 
@@ -411,6 +369,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("change", filterGames);
 });
 
+// SIDEBAR
+
 const navbar = document.getElementById("navbar");
 
 function openSidebar() {
@@ -428,3 +388,26 @@ if (themeSwitch) {
     document.body.classList.toggle("darkmode");
   });
 }
+
+const filterDialog = document.getElementById("filter-menu");
+
+const openFilterButton = document.getElementById("openFilterBtn");
+
+const closeFilterButton = document.getElementById("close-filter-menu");
+
+function openFilterModal() {
+  if (filterDialog) {
+    filterDialog.showModal();
+    console.log("Filter Dialog åbnet!");
+  }
+}
+
+if (openFilterButton) {
+  openFilterButton.addEventListener("click", openFilterModal);
+}
+
+// Luk dialog på klik af X
+document.querySelector("#close-filter-menu").addEventListener("click", () => {
+  document.querySelector("#filter-menu").close();
+  document.querySelector("#filter-menu").style.display = "none";
+});
