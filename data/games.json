@@ -235,7 +235,8 @@
     "location": "Fredensgade",
     "shelf": "N6",
     "available": true,
-    "rules": "Spillerne samler togvogne og bygger ruter mellem byer i Europa. Længere ruter giver flere point, og hemmelige billetkort afgør sejr. Saml kort i samme farve for at bygge jernbaneruter på brættet. Hver rute har en specifik længde og farve. Opfyld dine destinationskort for bonuspoint, men pas på - ufuldførte ruter giver minuspoint! Tunneller og færger har særlige regler."
+    "rules": "Spillerne samler togvogne og bygger ruter mellem byer i Europa. Længere ruter giver flere point, og hemmelige billetkort afgør sejr. Saml kort i samme farve for at bygge jernbaneruter på brættet. Hver rute har en specifik længde og farve. Opfyld dine destinationskort for bonuspoint, men pas på - ufuldførte ruter giver minuspoint! Tunneller og færger har særlige regler.",
+    "rules.pdf": "https://cdn.abicart.com/shop/17886/art5/5509805-43a441-Ticket_To_Ride_Europe_Regler.pdf"
   },
   {
     "id": 15,

@@ -199,6 +199,14 @@ body {
   position: relative;
 }
 
+.splash-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo {
   width: 100px;
   opacity: 0;
@@ -213,17 +221,6 @@ body {
 
 .splash-screen.fade-out {
   opacity: 0;
-}
-
-footer {
-  position: fixed; /* Footer fastlåses i forhold til viewport */
-  bottom: 0; /* Lige ved bunden */
-  left: 50%; /* Flytter venstre kant til midten */
-  transform: translateX(-50%); /* Center footer horisontalt */
-  color: black; /* Tekstfarve */
-  padding: 10px 20px; /* Indvendig margin */
-  text-align: center; /* Tekst centreret */
-  font-size: 14px; /* Valgfri størrelse */
 }
 
 /*LOCATIONSIDE*/
