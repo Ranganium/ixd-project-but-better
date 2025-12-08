@@ -90,18 +90,6 @@ main {
   text-align: center;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  color: black;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 14px;
-  font-family: var(--other-font);
-}
-
 /* ==================================================== */
 /* 🚀 3. FORSIDE (SPLASH SCREEN) */
 /* ==================================================== */
