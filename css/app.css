@@ -469,42 +469,31 @@ footer {
   color: var(--normal-text-color);
 }
 
-/* Filter bar */
-.filter-bar {
+.filter-group {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  padding: 12px 16px;
-  gap: 8px;
-  position: fixed;
-  top: 80px;
-  left: 0;
-  right: 0;
-  background-color: var(--tag-fill);
-  border-bottom: 1px solid var(--info-grey);
+  border-radius: 16px;
   width: 100%;
-  box-sizing: border-box;
-  z-index: 999;
-}
-
-.dropbtn {
-  background-color: var(--info-grey);
-  border: none;
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 0.95rem;
-  cursor: pointer;
 }
 
 .filter-group select {
-  background-color: var(--info-grey);
-  border: none;
+  text-align: center;
+  text-align-last: center;
+  background-color: var(--logo-red);
+  border: var(--logo-red);
   appearance: none;
-  border-radius: 20px;
-  padding: 8px 30px 8px 12px;
-  font-size: 14px;
+  font-family: var(--other-font);
+  font-weight: 500;
+  border-radius: 16px;
+  padding: 8px 16px;
+  font-size: var(--tag-size);
   cursor: pointer;
+  color: white;
+  width: 100%;
+}
+
+.filter-group select option {
+  text-align: center;
 }
 
 /* Show dropdown on click */
@@ -548,7 +537,7 @@ main {
    ===================== */
 
 .game-list-all {
-  padding-top: 80px;
+  padding-top: 150px;
   padding-bottom: 80px;
 
   max-width: calc((172.5px * 4) + (16px * 3));
@@ -567,11 +556,9 @@ main {
 
 /* ====== DIALOG ====== */
 #filter-menu {
-  display: flex;
-  flex-direction: column;
-  width: 80vh;
+  width: 100vh;
   border: none;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   background-color: var(--info-grey);
   box-shadow: var(--shadow);
   overflow: auto;
@@ -579,6 +566,85 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   animation: fadeIn 0.3s ease;
+}
+
+#filter-menu::backdrop {
+  background: rgba(2, 2, 2, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.filter-menu-styling {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  padding: 16px;
+  background: none;
+  gap: 48px;
+}
+
+.filter-menu-styling p {
+  color: var(--normal-text-color);
+  font-family: var(--other-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: var(--tag-font-weight);
+  line-height: normal;
+  letter-spacing: 0.96px;
+}
+
+.filter-menu-styling h3 {
+  color: var(--normal-text-color);
+  font-family: var(--header-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 800;
+  line-height: var(--poppins-line-height);
+  letter-spacing: -0.176px;
+}
+
+.filter-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter-top button {
+  border: none;
+  background: none;
+  width: 20px;
+}
+
+.filter-top > :first-child {
+  color: var(--logo-red);
+  font-family: var(--other-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 0.96px;
+}
+
+#placering-tag {
+  border: none;
+  background: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.placering-tag {
+  padding: 8px;
+  width: 100%;
+  border: 2px solid var(--logo-red);
+  border-radius: 16px;
+  color: var(--logo-red);
+  font-family: var(--header-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 800;
+  line-height: var(--poppins-line-height);
+  letter-spacing: -0.176px;
 }
 
 #game-dialog {

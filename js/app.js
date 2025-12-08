@@ -294,8 +294,6 @@ document.querySelector("#close-dialog").addEventListener("click", () => {
 // Load games on page load
 document.addEventListener("DOMContentLoaded", getGames);
 
-// FILTRERINGSSYSTEM //
-
 // værdier fra input felter
 function filterGames() {
   const searchValue = document
@@ -395,19 +393,14 @@ const openFilterButton = document.getElementById("openFilterBtn");
 
 const closeFilterButton = document.getElementById("close-filter-menu");
 
-function openFilterModal() {
-  if (filterDialog) {
-    filterDialog.showModal();
-    console.log("Filter Dialog åbnet!");
-  }
-}
+openFilterButton.addEventListener("click", () => {
+  filterDialog.showModal();
+});
 
-if (openFilterButton) {
-  openFilterButton.addEventListener("click", openFilterModal);
-}
+closeFilterButton.addEventListener("click", () => {
+  filterDialog.close();
+});
 
-// Luk dialog på klik af X
-document.querySelector("#close-filter-menu").addEventListener("click", () => {
-  document.querySelector("#filter-menu").close();
-  document.querySelector("#filter-menu").style.display = "none";
+document.getElementById("placering-tag").addEventListener("click", () => {
+  window.location.href = "location.html";
 });
