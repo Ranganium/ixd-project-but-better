@@ -120,13 +120,17 @@ function showGameModal(id) {
           <div class="tags">${getLanguageFlag(game.language)}</div>
           <div class="tags"><p>${game.age} år</p></div>
         </div>
-        <p>${game.rules}</p>
+        <p>${
+          game.rules
+        } <em>find alle regler ved at trykke på den røde knap</em></p>
       </div>
 
       <div class="red-section">
         <div class="red-things">
           <div class="red-tag"><p>Hylde: ${game.shelf}</p></div>
-          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="${
+            game.rules_pdf
+          }"><svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_d_82_2444)">
           <path d="M44.2568 46.2861H27.4258C26.8363 46.2861 26.2704 46.0524 25.8535 45.6367C25.4366 45.2209 25.2022 44.6564 25.2021 44.0684C25.2021 43.4803 25.4366 42.9158 25.8535 42.5C26.2704 42.0843 26.8363 41.8506 27.4258 41.8506H44.2568V46.2861Z" fill="#BF181D"/>
           <path d="M36 32.6875C36.5896 32.6875 37.1554 32.9211 37.5723 33.3369C37.9891 33.7527 38.2227 34.3173 38.2227 34.9053C38.2225 35.4931 37.9889 36.0569 37.5723 36.4727C37.1554 36.8885 36.5896 37.1221 36 37.1221C35.4104 37.1221 34.8446 36.8885 34.4277 36.4727C34.0111 36.0569 33.7775 35.4931 33.7773 34.9053C33.7773 34.3173 34.0109 33.7527 34.4277 33.3369C34.8446 32.9211 35.4104 32.6875 36 32.6875Z" fill="#BF181D"/>
@@ -145,7 +149,8 @@ function showGameModal(id) {
           <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_82_2444" result="shape"/>
           </filter>
           </defs>
-          </svg>
+          </svg></a>
+          
 
           <div class="red-tag">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
