@@ -10,7 +10,7 @@ Grundlæggende har min mappestruktur set sådan ud:
 - data
   - `games.json`
 - img
-  - 
+  - *alle billeder*
 - js
 - sites
   - `location.html`
