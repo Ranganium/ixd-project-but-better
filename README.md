@@ -13,6 +13,8 @@ Grundlæggende har min mappestruktur set sådan ud:
   - 
 - js
 - sites
+  - `location.html`
+  - `spilgalleri.html`
 - `index.html`
 - `README.md`
 
