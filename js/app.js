@@ -49,7 +49,7 @@ async function getGames() {
   displayGames(allGames);
 }
 
-// #3: Display all games
+// Display all games
 function displayGames(games) {
   const gameList = document.querySelector(".game-list-all");
   if (!gameList) return;
@@ -65,7 +65,7 @@ function displayGames(games) {
   }
 }
 
-// #4: Render a single game card and add event listeners
+// Render a single game card and add event listeners
 function displayGame(game) {
   const gameList = document.querySelector(".game-list-all");
   if (!gameList) return;
@@ -91,18 +91,20 @@ function displayGame(game) {
   });
 }
 
+// HTML struktur for infositet til hvert enste game-card                                JEG KAN IKKE FÅ LOV TIL AT SKRIVE KOMMENTARE HER NEDE UNDER, SÅ DET MÅ DU UNDSKYLDE, MEN DET ER IKKE MULIGT
 function showGameModal(id) {
   const game = allGames.find((g) => g.id == id);
   if (!game) return;
   document.querySelector("#game-dialog").style.display = "block";
 
   document.querySelector("#dialog-content").innerHTML = /*html*/ `
+  
+  <img src="${game.image}" alt="${game.title}" class="game-image" />
 
-    <img src="${game.image}" alt="${game.title}" class="game-image" />
     <div class="dialog-bottom-content">
       <div class="dialog-details">
+      
         <div class="infosite-header-container"><h2>${game.title}</h2></div>
-        
 
         <div class="dialog-tag-container">
           <div class="tags"><p>${game.genre}</p></div>
@@ -120,6 +122,7 @@ function showGameModal(id) {
           <div class="tags">${getLanguageFlag(game.language)}</div>
           <div class="tags"><p>${game.age} år</p></div>
         </div>
+
         <p>${
           game.rules
         } <em>find alle regler ved at trykke på den røde knap</em></p>
@@ -127,6 +130,7 @@ function showGameModal(id) {
 
       <div class="red-section">
         <div class="red-things">
+
           <div class="red-tag"><p>Hylde: ${game.shelf}</p></div>
           <a href="${
             game.rules_pdf
@@ -264,6 +268,7 @@ function showGameModal(id) {
   document.querySelector("#game-dialog").showModal();
 }
 
+// Funktion, som gør det muligt at indsætte flag i stedet for navne på sprogene
 function getLanguageFlag(language) {
   if (language === "Dansk") {
     return `<svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -372,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("change", filterGames);
 });
 
-// SIDEBAR
+// SIDE-BAR
 
 const navbar = document.getElementById("navbar");
 

@@ -1,5 +1,9 @@
+/* ==================================================== */
+/* 💎 1. CSS VARIABLER (THEME & TYPOGRAPHY) */
+/* ==================================================== */
+
 :root {
-  /* typography */
+  /* Typography */
   --header-font: "Poppins";
   --other-font: "Inter";
 
@@ -18,7 +22,7 @@
 
   --poppins-line-height: 115%;
 
-  /* Color styles */
+  /* Color styles (LYST TEMA) */
   --normal-text-color: black;
   --base-color: #ffffff;
   --tag-border: #bf181d;
@@ -34,7 +38,7 @@
 }
 
 .darkmode {
-  /* Color styles */
+  /* Color styles (MØRKT TEMA) */
   --normal-text-color: #fff;
   --base-color: #121524;
   --tag-border: #121524;
@@ -49,134 +53,15 @@
   --shadow: 0 4px 4px 0 rgba(66, 66, 66, 0.16);
 }
 
+/* ==================================================== */
+/* ⚙️ 2. GENERELLE STYLES (RESET & BASE) */
+/* ==================================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-.spilgalleri-titel {
-  font-family: var(--header-font);
-  font-size: var(--infosite-title-size);
-}
-
-/* Card in general */
-/* Card */
-.game-card {
-  display: flex;
-  width: 172.5px;
-  flex-direction: column;
-  align-items: flex-start;
-  border-radius: 16px;
-  background: var(--info-grey);
-  box-shadow: var(--shadow);
-  break-inside: avoid;
-  margin-bottom: 16px;
-}
-
-/* Billede af brætspil */
-.game-image {
-  height: 160px;
-  align-self: stretch;
-  border-radius: 16px;
-  background-color: var(--info-grey);
-}
-
-/* Nedre card */
-.bottom-card {
-  display: flex;
-  padding: 4px 8px 8px 8px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  align-self: stretch;
-  background: var(--info-grey);
-  border-radius: 0 0 16px 16px;
-}
-
-.card-header-container {
-  display: flex;
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-}
-
-.card-header-container h2 {
-  flex: 1 0 0;
-  color: var(--normal-text-color);
-  text-shadow: var(--shadow);
-  font-family: var(--header-font);
-  font-size: var(--card-size);
-  font-style: normal;
-  font-weight: var(--card-font-weight);
-  line-height: var(--poppins-line-height);
-  letter-spacing: var(--card-letter-spacing);
-}
-
-/* Tags */
-.tags {
-  display: flex;
-  padding: 4px 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border-radius: 16px;
-  border: 0.5px solid var(--tag-border);
-  background: var(--tag-fill);
-  box-shadow: var(--shadow);
-}
-
-.tags p {
-  color: var(--logo-red);
-  font-family: var(--other-font);
-  font-size: var(--tag-size);
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: var(--tag-letter-spacing);
-}
-
-.tags svg {
-  height: 16px;
-  aspect-ratio: 1/1;
-}
-
-.red-tag {
-  display: flex;
-  width: 84px;
-  height: 27px;
-  padding: 4px 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border-radius: 12px;
-  background: var(--logo-red);
-  box-shadow: var(--shadow);
-}
-
-.red-tag p {
-  color: white;
-}
-
-.red-tag svg {
-  width: 16px;
-  height: 16px;
-  aspect-ratio: 1/1;
-  fill: var(--rating-yellow);
-}
-
-/* Øvre card */
-.top-card {
-  height: 160px;
-  align-self: stretch;
-  border-radius: 16px 16px 0 0;
-  background-color: var(--info-grey);
-  padding: 1px;
-}
-
-/* FORSIDE */
 
 body {
   margin: 0;
@@ -188,6 +73,38 @@ body {
   background-color: var(--base-color);
   position: relative;
 }
+
+main {
+  padding-top: 0;
+  position: relative;
+}
+
+.spilgalleri-titel {
+  font-family: var(--header-font);
+  font-size: var(--infosite-title-size);
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+  font-family: var(--other-font);
+}
+
+/* ==================================================== */
+/* 🚀 3. FORSIDE (SPLASH SCREEN) */
+/* ==================================================== */
 
 .splash-screen {
   width: 100vw;
@@ -213,7 +130,9 @@ body {
   opacity: 0;
 }
 
-/*LOCATIONSIDE*/
+/* ==================================================== */
+/* 🗺️ 4. LOCATION SIDE (LOKATIONSVÆLGER) */
+/* ==================================================== */
 
 .location {
   display: flex;
@@ -224,6 +143,12 @@ body {
   width: 100%;
   margin-top: 32px;
   padding-bottom: 32px;
+  opacity: 0; /* starter skjult */
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.location.fade-in {
+  opacity: 1; /* bliver synlig */
 }
 
 .location h2 {
@@ -247,6 +172,7 @@ body {
   align-items: center;
 }
 
+/* Button Card */
 .button-card {
   display: flex;
   width: 345px;
@@ -264,7 +190,6 @@ body {
   height: 128px;
   width: 100%;
   border-radius: 16px 16px 0 0;
-
   background: linear-gradient(
       0deg,
       rgba(191, 24, 29, 0.4) 0%,
@@ -299,7 +224,7 @@ body {
   font-family: var(--other-font);
   font-size: var(--tag-size);
   font-style: normal;
-  font-weight: 100;
+  font-weight: 300;
   line-height: normal;
   letter-spacing: 0.96px;
 }
@@ -309,29 +234,100 @@ body {
   transform: translateY(-2px);
 }
 
-footer {
+/* ==================================================== */
+/* 🧭 5. NAVIGATION (TOP NAV & SIDEBAR) */
+/* ==================================================== */
+
+/* --- SIDEBAR (Standard Navigation) --- */
+
+nav {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    var(--nav-bg) 50%,
+    rgba(191, 24, 29, 0.1) 120%
+  );
   position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  color: black;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 14px;
+  z-index: 1001;
+  left: -100%;
+  transition: left 0.3s ease;
+  padding-left: 24px;
+  padding-top: 56px;
 }
 
-/* fade-ind effekt */
-.location {
-  opacity: 0; /* starter skjult */
-  transition: opacity 1s ease, transform 1s ease;
+nav.show {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  left: 0;
+  gap: 24px;
 }
 
-.location.fade-in {
-  opacity: 1; /* bliver synlig */
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
 }
 
-/*SPILGALLERISIDE*/
-/*Navbar*/
+nav ul li {
+  color: var(--nav-li);
+  font-family: var(--other-font);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  /* Bemærk: tag-line-height er ikke defineret i :root, brug evt. normal line-height */
+  line-height: normal;
+  letter-spacing: -0.264px;
+}
+
+#close-sidebar-btn {
+  background: none;
+  border: none;
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+/* Theme Switch Button */
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border: none;
+  cursor: pointer;
+}
+
+#theme-switch > * {
+  fill: var(--logo-red);
+}
+
+.darkmode #theme-switch > :first-child {
+  display: none; /* Skjul Sol-ikon i Dark Mode */
+}
+
+#theme-switch > :last-child {
+  display: none; /* Skjul Måne-ikon i Light Mode */
+}
+
+#theme-switch > :first-child {
+  display: block;
+}
+
+.darkmode #theme-switch > :last-child {
+  display: block;
+}
+
+/* --- TOP NAV (Spiloversigt Navbar) --- */
+
 .spiloversigt-nav {
   position: fixed;
   top: 0;
@@ -374,6 +370,14 @@ footer {
   justify-self: stretch;
 }
 
+.hamburger-menu-btn {
+  list-style: none;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .searchbar-grid-container {
   display: flex;
   height: 33px;
@@ -386,6 +390,20 @@ footer {
   overflow: hidden;
   transition: all 0.3s ease-out;
   padding-right: 8px;
+}
+
+#search-input {
+  position: relative;
+  height: 100%;
+  padding: 8px 16px;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: end;
+  border-radius: 16px;
+  border: solid 0.5px var(--tag-border);
+  background-color: var(--tag-fill);
+  color: var(--normal-text-color);
 }
 
 .game-count-grid-container {
@@ -401,9 +419,6 @@ footer {
 
 .game-count-grid-container p {
   color: var(--normal-text-color);
-}
-
-.game-count-grid-container p {
   font-family: var(--other-font);
   font-size: var(--tag-size);
   font-style: normal;
@@ -412,6 +427,7 @@ footer {
   letter-spacing: var(--tag-letter-spacing);
 }
 
+/* Titel i Navbar */
 .spilgalleri-titel {
   grid-row: 3 / span 1;
   grid-column: 2 / span 1;
@@ -445,32 +461,223 @@ footer {
   cursor: pointer;
 }
 
-.title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-align: center;
+/* ==================================================== */
+/* 🖼️ 6. SPILKORT & GRID (GAME CARDS) */
+/* ==================================================== */
+
+/* --- SPIL GRID --- */
+
+.game-list-all {
+  padding-top: 150px;
+  padding-bottom: 80px;
+
+  max-width: calc((172.5px * 4) + (16px * 3));
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 172.5px);
+  gap: 16px;
 }
 
-.hamburger-menu-btn {
-  list-style: none;
-  text-decoration: none;
-  background: none;
+/* --- KORT (Base Style) --- */
+
+.game-card {
+  display: flex;
+  width: 172.5px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 16px;
+  background: var(--info-grey);
+  box-shadow: var(--shadow);
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+/* Øvre card (Billede) */
+.top-card {
+  height: 160px;
+  align-self: stretch;
+  border-radius: 16px 16px 0 0;
+  background-color: var(--info-grey);
+  padding: 1px;
+}
+
+.top-card img {
+  width: 100%;
+  max-width: 180px;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background: var(--base-color);
+}
+
+.game-image {
+  height: 160px;
+  align-self: stretch;
+  border-radius: 16px;
+  background-color: var(--info-grey);
+}
+
+/* Nedre card (Info) */
+.bottom-card {
+  display: flex;
+  padding: 4px 8px 8px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  background: var(--info-grey);
+  border-radius: 0 0 16px 16px;
+}
+
+.card-header-container {
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.card-header-container h2 {
+  flex: 1 0 0;
+  color: var(--normal-text-color);
+  text-shadow: var(--shadow);
+  font-family: var(--header-font);
+  font-size: var(--card-size);
+  font-style: normal;
+  font-weight: var(--card-font-weight);
+  line-height: var(--poppins-line-height);
+  letter-spacing: var(--card-letter-spacing);
+}
+
+/* --- TAGS (Generelle) --- */
+
+.tags {
+  display: flex;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  border: 0.5px solid var(--tag-border);
+  background: var(--tag-fill);
+  box-shadow: var(--shadow);
+  height: 31px;
+}
+
+.tags p {
+  color: var(--logo-red);
+  font-family: var(--other-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: var(--tag-letter-spacing);
+}
+
+.tags svg {
+  height: 16px;
+  aspect-ratio: 1/1;
+}
+
+/* Rød Tag (F.eks. for rating) */
+.red-tag {
+  display: flex;
+  width: 84px;
+  height: 27px;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 12px;
+  background: var(--logo-red);
+  box-shadow: var(--shadow);
+}
+
+.red-tag p {
+  color: white;
+}
+
+.red-tag svg {
+  width: 16px;
+  height: 16px;
+  aspect-ratio: 1/1;
+  fill: var(--rating-yellow);
+}
+
+/* ==================================================== */
+/* 💬 7. MODALER (DIALOG BOKSE) */
+/* ==================================================== */
+
+/* --- GENEREL DIALOG STYLING --- */
+
+#game-dialog,
+#filter-menu {
   border: none;
+  border-radius: 16px;
+  background-color: var(--info-grey);
+  box-shadow: var(--shadow);
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.3s ease;
+}
+
+#game-dialog::backdrop,
+#filter-menu::backdrop {
+  background: rgba(2, 2, 2, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+/* --- FILTER MODAL --- */
+
+#filter-menu {
+  width: 100vh;
+}
+
+.filter-menu-styling {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  padding: 16px;
+  background: none;
+  gap: 48px;
+}
+
+.filter-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter-top button {
+  border: none;
+  background: none;
+  width: 20px;
   cursor: pointer;
 }
 
-#search-input {
-  position: relative;
-  height: 100%;
-  padding: 8px 16px;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  align-self: end;
-  border-radius: 16px;
-  border: solid 0.5px var(--tag-border);
-  background-color: var(--tag-fill);
+.filter-top > :first-child {
+  color: var(--logo-red);
+  font-family: var(--other-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 0.96px;
+}
+
+.filter-menu-styling h3 {
   color: var(--normal-text-color);
+  font-family: var(--header-font);
+  font-size: var(--tag-size);
+  font-style: normal;
+  font-weight: 800;
+  line-height: var(--poppins-line-height);
+  letter-spacing: -0.176px;
 }
 
 .filter-group {
@@ -500,135 +707,13 @@ footer {
   text-align: center;
 }
 
-/* Show dropdown on click */
-.show {
-  display: block;
-}
-
-/*Vestergade & alle spil sektion*/
-
-/* --- CONTAINER --- */
-main {
-  padding-top: 0;
-  position: relative;
-}
-
-/* --- SEKTIONER --- */
-
-.location-header {
-  font-family: var(--header-font);
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--normal-text-color);
-  margin-bottom: 16px;
-  flex-direction: row;
-}
-
-/* --- ALLE SPIL (grid) --- */
-
-.top-card img {
-  width: 100%;
-  max-width: 180px; /* or whatever max width you want */
-  height: 160px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  background: var(--base-color);
-}
-
-/* =====================
-   SPIL GRID & CARDS
-   ===================== */
-
-.game-list-all {
-  padding-top: 150px;
-  padding-bottom: 80px;
-
-  max-width: calc((172.5px * 4) + (16px * 3));
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(4, 172.5px);
-  gap: 16px;
-}
-
-/* ====== DIALOG ====== */
-#filter-menu {
-  width: 100vh;
-  border: none;
-  border-radius: 16px;
-  background-color: var(--info-grey);
-  box-shadow: var(--shadow);
-  overflow: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: fadeIn 0.3s ease;
-}
-
-#filter-menu::backdrop {
-  background: rgba(2, 2, 2, 0.6);
-  backdrop-filter: blur(2px);
-}
-
-.filter-menu-styling {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-  padding: 16px;
-  background: none;
-  gap: 48px;
-}
-
-.filter-menu-styling p {
-  color: var(--normal-text-color);
-  font-family: var(--other-font);
-  font-size: var(--tag-size);
-  font-style: normal;
-  font-weight: var(--tag-font-weight);
-  line-height: normal;
-  letter-spacing: 0.96px;
-}
-
-.filter-menu-styling h3 {
-  color: var(--normal-text-color);
-  font-family: var(--header-font);
-  font-size: var(--tag-size);
-  font-style: normal;
-  font-weight: 800;
-  line-height: var(--poppins-line-height);
-  letter-spacing: -0.176px;
-}
-
-.filter-top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.filter-top button {
-  border: none;
-  background: none;
-  width: 20px;
-}
-
-.filter-top > :first-child {
-  color: var(--logo-red);
-  font-family: var(--other-font);
-  font-size: var(--tag-size);
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  letter-spacing: 0.96px;
-}
-
 #placering-tag {
   border: none;
   background: none;
   width: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .placering-tag {
@@ -645,19 +730,12 @@ main {
   letter-spacing: -0.176px;
 }
 
+/* --- SPIL DETALJE MODAL (GAME DIALOG) --- */
+
 #game-dialog {
   align-items: flex-start;
   width: 100%;
-  border: none;
-  border-radius: 16px;
-  background: var(--info-grey);
-  box-shadow: var(--shadow);
   padding: 6px;
-  overflow: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: fadeIn 0.3s ease;
 }
 
 #close-dialog {
@@ -667,15 +745,11 @@ main {
   background: none;
   border: none;
   right: 0;
+  cursor: pointer;
 }
 
 #close-dialog > :only-child {
   fill: var(--normal-text-color);
-}
-
-#game-dialog::backdrop {
-  background: rgba(2, 2, 2, 0.6);
-  backdrop-filter: blur(2px);
 }
 
 #dialog-content {
@@ -700,13 +774,53 @@ main {
   height: fit-content;
   flex-direction: column;
   align-items: center;
-
   flex-shrink: 0;
   width: 100%;
   overflow: auto;
   padding: 10px;
 }
 
+.infosite-header-container {
+  display: flex;
+  padding: 0 4px;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.infosite-header-container h2 {
+  color: var(--normal-text-color);
+  text-shadow: var(--shadow);
+  font-family: var(--header-font);
+  font-size: var(--infosite-title-size);
+  font-style: normal;
+  font-weight: var(--infosite-title-font-weight);
+  line-height: var(--poppins-line-height);
+  letter-spacing: var(--infosite-title-letter-spacing);
+}
+
+.dialog-tag-container {
+  display: flex;
+  height: 74px;
+  padding: 16px 4px;
+  align-items: center;
+  align-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dialog-tag-container p {
+  color: var(--logo-red);
+}
+
+.dialog-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* Detalje Boks */
 .dialog-details {
   display: flex;
   padding: 4px 0;
@@ -736,43 +850,7 @@ main {
   color: var(--logo-red);
 }
 
-.modal {
-  margin-top: 100px;
-}
-
-.infosite-header-container {
-  display: flex;
-  padding: 0 4px;
-  align-items: flex-start;
-  gap: 8px;
-  align-self: stretch;
-}
-.infosite-header-container h2 {
-  color: var(--normal-text-color);
-  text-shadow: var(--shadow);
-  font-family: var(--header-font);
-  font-size: var(--infosite-title-size);
-  font-style: normal;
-  font-weight: var(--infosite-title-font-weight);
-  line-height: var(--poppins-line-height);
-  letter-spacing: var(--infosite-title-letter-spacing);
-}
-
-.dialog-tag-container {
-  display: flex;
-  height: 74px;
-  padding: 16px 4px;
-  align-items: center;
-  align-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.dialog-tag-container p {
-  color: var(--logo-red);
-}
-
+/* Rød sektion (til ratings/special info) */
 .red-section {
   width: 100%;
   position: relative;
@@ -812,6 +890,7 @@ main {
   transform: translate(-50%, -50%);
 }
 
+/* Rating sektion i dialog */
 .rating-section {
   display: flex;
   width: 100%;
@@ -877,124 +956,46 @@ main {
   letter-spacing: var(--tag-letter-spacing);
 }
 
-.dialog-tags {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
+/* ==================================================== */
+/* 💻 8. RESPONSIVE DESIGN (MEDIA QUERIES) */
+/* ==================================================== */
 
-footer {
-  font-family: var(--other-font);
-}
-
-nav {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-    90deg,
-    var(--nav-bg) 50%,
-    rgba(191, 24, 29, 0.1) 120%
-  );
-  position: fixed;
-  z-index: 1001;
-  left: -100%;
-  transition: left 0.3s ease;
-  padding-left: 24px;
-  padding-top: 56px;
-}
-
-nav.show {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  left: 0;
-  gap: 24px;
-}
-
-#close-sidebar-btn {
-  background: none;
-  border: none;
-  transform: scale(1.5);
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 24px;
-}
-
-nav ul li {
-  color: var(--nav-li);
-  font-family: var(--other-font);
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: var(--tag-line-height);
-  letter-spacing: -0.264px;
-}
-
-#theme-switch {
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: var(--base-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: var(--shadow);
-  border: none;
-}
-
-#theme-switch > * {
-  fill: var(--logo-red);
-}
-
-.darkmode #theme-switch > :first-child {
-  display: none;
-}
-
-#theme-switch > :last-child {
-  display: none;
-}
-
-#theme-switch > :first-child {
-  display: block;
-}
-
-.darkmode #theme-switch > :last-child {
-  display: block;
-}
-
+/* Mobil optimering (max 430px) */
 @media (max-width: 430px) {
   .game-list-all {
     grid-template-columns: repeat(2, 172.5px);
   }
 }
 
+/* Tablet / Desktop optimering (min 767px) */
 @media (min-width: 767px) {
+  /* Dialog Red Section */
   .red-section {
     background-color: var(--info-grey);
     display: block;
     height: 100px;
     border-radius: 16px;
   }
+
+  .red-section > :last-child {
+    display: none; /* Skjul baggrunds SVG på større skærme */
+  }
+
+  /* Red Tag i dialog */
   .red-tag {
     width: 150px;
     height: auto;
   }
+
   .red-tag p {
     font-size: 20px;
   }
+
   .red-things svg {
     scale: 1.2;
   }
-  .red-section > :last-child {
-    display: none;
-  }
+
+  /* Dialog Content */
   .dialog-bottom-content {
     gap: 16px;
   }

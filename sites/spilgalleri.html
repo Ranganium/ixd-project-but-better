@@ -12,6 +12,7 @@
   </head>
   
   <body>
+    <!-- Navigationsbar på spiloversigtside (hamburgermenu, searchbar, filter-menu) -->
     <header class="spiloversigt-nav">
       <div class="spiloversigt-nav-grid">
         <div class="hamburgermenu-grid-container"><button class="hamburger-menu-btn" id="open-sidebar-btn" onclick="openSidebar()">
@@ -52,17 +53,11 @@
     </section>
 
     <main class="main-content">
-      <!--Vestergade spil sektion-->
-  
-      
-      </section>
-
-        
-      <!--Alle spil sektion-->
-
-    <section class="game-list-all"></section>
+      <section class="game-list-all"></section>
+      <!-- Alle game-cards fetches her ind -->
     </main>
 
+    <!-- Sidbar (linker til andre(ikkeeksisterende) sider og darkmode) -->
     <nav id="navbar">
       <button id="close-sidebar-btn" onclick="closeSidebar()"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00911 10.1536L13.3973 15.5357C13.6833 15.8213 14.0711 15.9818 14.4754 15.9818C14.8797 15.9818 15.2675 15.8213 15.5535 15.5357C15.8394 15.2501 16 14.8628 16 14.4589C16 14.055 15.8394 13.6677 15.5535 13.3821L10.1632 8L15.5524 2.61791C15.6939 2.4765 15.8062 2.30863 15.8827 2.12389C15.9593 1.93916 15.9987 1.74117 15.9986 1.54123C15.9986 1.34129 15.9591 1.14332 15.8825 0.958621C15.8058 0.773921 15.6935 0.606108 15.5519 0.464764C15.4104 0.32342 15.2423 0.211313 15.0574 0.134844C14.8724 0.0583748 14.6742 0.0190408 14.474 0.0190879C14.2739 0.019135 14.0757 0.0585622 13.8908 0.135119C13.7058 0.211675 13.5378 0.323861 13.3963 0.465272L8.00911 5.84736L2.62088 0.465272C2.48035 0.319805 2.31223 0.20375 2.12632 0.123877C1.94041 0.044005 1.74044 0.00191503 1.53807 6.3842e-05C1.3357 -0.00178735 1.13499 0.036637 0.947644 0.113095C0.760301 0.189553 0.590079 0.302513 0.446909 0.445385C0.30374 0.588257 0.19049 0.758179 0.113768 0.945236C0.0370464 1.13229 -0.00161105 1.33274 5.14303e-05 1.53488C0.00171391 1.73702 0.0436629 1.9368 0.123451 2.12258C0.203239 2.30835 0.319268 2.47639 0.464769 2.61689L5.85504 8L0.465785 13.3831C0.320285 13.5236 0.204256 13.6917 0.124468 13.8774C0.0446794 14.0632 0.00272991 14.263 0.00106743 14.4651C-0.000595046 14.6673 0.0380624 14.8677 0.114784 15.0548C0.191506 15.2418 0.304756 15.4117 0.447925 15.5546C0.591095 15.6975 0.761317 15.8104 0.94866 15.8869C1.136 15.9634 1.33671 16.0018 1.53908 15.9999C1.74145 15.9981 1.94142 15.956 2.12733 15.8761C2.31324 15.7963 2.48137 15.6802 2.62189 15.5347L8.00911 10.1536Z" fill="var(--nav-li)"/>
@@ -74,6 +69,7 @@
       <li class="spilguide-li"><a href="spilgalleri.html"></a>Spilguide</li>
       <li class="spiloversigt-li"><a href="#"></a>Spiloversigt</li>
     </ul>
+    <!-- Darkmode -->
     <button id="theme-switch">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M9 18C6.5 18 4.375 17.125 2.625 15.375C0.875 13.625 0 11.5 0 9C0 6.5 0.875 4.375 2.625 2.625C4.375 0.875 6.5 0 9 0C9.23333 0 9.4625 0.00833333 9.6875 0.025C9.9125 0.0416667 10.1333 0.0666667 10.35 0.1C9.66667 0.583333 9.12083 1.2125 8.7125 1.9875C8.30417 2.7625 8.1 3.6 8.1 4.5C8.1 6 8.625 7.275 9.675 8.325C10.725 9.375 12 9.9 13.5 9.9C14.4167 9.9 15.2583 9.69583 16.025 9.2875C16.7917 8.87917 17.4167 8.33333 17.9 7.65C17.9333 7.86667 17.9583 8.0875 17.975 8.3125C17.9917 8.5375 18 8.76667 18 9C18 11.5 17.125 13.625 15.375 15.375C13.625 17.125 11.5 18 9 18Z" fill="#C9C9C9"/>
@@ -84,7 +80,7 @@
     </button>
     </nav>
 
-    <!-- Game Detail Modal -->
+    <!-- Game infoside Modal (med lukke-knap) -->
     <dialog id="game-dialog">
       <form method="dialog">
         <button id="close-dialog" aria-label="Close">
@@ -93,9 +89,11 @@
           </svg>
         </button>
         <div id="dialog-content"></div>
+        <!-- Her loades javascript-innerHTML'en -->
       </form>
     </dialog>
 
+    <!-- Filter-menu (dog med drop-downmenuer for kategori, aldersgruppe, spilletid og knap til location side) -->
     <dialog id="filter-menu">
       <form method="dialog">
         <section class="filter-menu-styling">
