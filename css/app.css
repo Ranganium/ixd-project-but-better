@@ -544,6 +544,7 @@ nav ul li {
 
 .tags {
   display: flex;
+  gap: 4px;
   padding: 4px 8px;
   justify-content: center;
   align-items: center;

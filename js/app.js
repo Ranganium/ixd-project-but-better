@@ -78,7 +78,7 @@ function displayGame(game) {
             class="game-image" />
         </section>
         <section class="bottom-card">
-        <article class="card-header-container"><h2>${game.title}</h2></article>
+          <article class="card-header-container"><h2>${game.title}</h2></article>
         </section>
     </article>
   `;
